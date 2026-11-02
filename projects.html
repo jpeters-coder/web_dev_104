@@ -4,44 +4,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | Jamaar's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Projects & Work Experience</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects/Work</a></li>
-        <li><a href="about.html">About/Contact</a></li>
-      </ul>
-    </nav>
+  <header id="site-header">
+    <div class="container header-bar">
+      <h1>Projects & Work Experience</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" class="is-active" aria-current="page">Projects/Work</a></li>
+          <li><a href="about.html">About/Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Recent IT Coursework</h2>
-      <h3>Highlights</h3>
-      <p>Placeholder intro text about your professional history.</p>
-      <ul>
-        <li>Website wireframing and responsive layout</li>
-        <li>HTML &amp; CSS projects</li>
-        <li>JavaScript small applications</li>
-      </ul>
-    </section>
+  <main class="container">
+    <div class="split">
+      <section class="card">
+        <h2>Recent IT Coursework</h2>
+        <h3>Highlights</h3>
+        <p>Placeholder intro text about your professional history.</p>
+        <ul>
+          <li>Website wireframing and responsive layout</li>
+          <li>HTML &amp; CSS projects</li>
+          <li>JavaScript small applications</li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>Selected Projects</h2>
-      <h3>Project list</h3>
-      <ul>
-        <li>Portfolio website (this repository)</li>
-        <li>Restaurant wireframe example</li>
-        <li>Coursework labs and exercises</li>
-      </ul>
-    </section>
+      <section class="card" id="selected-projects">
+        <h2>Selected Projects</h2>
+        <h3>Project list</h3>
+        <ul>
+          <li>Portfolio website (this repository)</li>
+          <li>Restaurant wireframe example</li>
+          <li>Coursework labs and exercises</li>
+        </ul>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2026 Jamaar E. Peters</p>
+  <footer id="site-footer">
+    <div class="container">
+      <p>© 2026 Jamaar E. Peters</p>
+    </div>
   </footer>
 </body>
 </html>
