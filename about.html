@@ -4,43 +4,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Jamaar's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>About Jamaar E. Peters</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects/Work</a></li>
-        <li><a href="about.html">About/Contact</a></li>
-      </ul>
-    </nav>
+  <header id="site-header">
+    <div class="container header-bar">
+      <h1>About Jamaar E. Peters</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects/Work</a></li>
+          <li><a href="about.html" class="is-active" aria-current="page">About/Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <h3>Biography</h3>
-      <p>Placeholder biographical text about your journey and interests.</p>
+  <main class="container">
+    <div class="split">
+      <section class="card" id="bio">
+        <h2>About Me</h2>
+        <h3>Biography</h3>
+        <p>Placeholder biographical text about your journey and interests.</p>
 
-      <figure>
-        <img src="website-wireframe-examples-Restaurant.webp" alt="Wireframe image used as a sample project illustration" width="600">
-        <figcaption>Project illustration used in coursework examples.</figcaption>
-      </figure>
-    </section>
+        <figure>
+          <img src="website-wireframe-examples-Restaurant.webp" alt="Wireframe image used as a sample project illustration" width="600">
+          <figcaption>Project illustration used in coursework examples.</figcaption>
+        </figure>
+      </section>
 
-    <section>
-      <h2>Contact Information</h2>
-      <h3>Ways to reach me</h3>
-      <ul>
-        <li>Email: placeholder@email.com</li>
-        <li>Location: Bronx, NY</li>
-      </ul>
-    </section>
+      <section class="card" id="contact">
+        <h2>Contact Information</h2>
+        <h3>Ways to reach me</h3>
+        <ul>
+          <li>Email: placeholder@email.com</li>
+          <li>Location: Bronx, NY</li>
+        </ul>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2026 Jamaar E. Peters</p>
+  <footer id="site-footer">
+    <div class="container">
+      <p>© 2026 Jamaar E. Peters</p>
+    </div>
   </footer>
 </body>
 </html>
