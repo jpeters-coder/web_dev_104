@@ -5,6 +5,7 @@
   --color-accent: #f59e0b;
   --color-secondary: #38bdf8;
   --color-muted: #94a3b8;
+  --color-error: #fca5a5;
 
   --space-1: 8px;
   --space-2: 16px;
@@ -192,11 +193,13 @@ main.container {
   color: var(--color-muted);
 }
 
-/* Class selector — single column until the tablet grid */
+/* Class selector — single column until the tablet grid.
+   Proximity: the gap between cards is wider than the spacing inside a card,
+   so each card reads as one grouped unit. */
 .split {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3);
+  gap: var(--space-4);
   margin-top: var(--space-3);
 }
 
@@ -220,6 +223,11 @@ main > .split {
   margin-bottom: 0;
 }
 
+/* Proximity: a card's heading sits close to its own content */
+.card h2 {
+  margin-bottom: var(--space-1);
+}
+
 /* ID selector */
 #highlights h3,
 #contact h3,
@@ -238,6 +246,102 @@ main > .split {
 #site-footer p {
   margin: 0;
   text-align: center;
+}
+
+/* Contact form (Milestone 3) */
+#contact-form {
+  margin-top: var(--space-4);
+}
+
+.form-field {
+  margin-bottom: var(--space-3);
+}
+
+.form-field > label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+  width: 100%;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-muted);
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-color: var(--color-secondary);
+}
+
+.form-field input[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.error-message {
+  margin: var(--space-1) 0 0;
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+fieldset.form-field {
+  border: 2px solid var(--color-muted);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+}
+
+fieldset.form-field legend {
+  font-weight: 600;
+  padding: 0 var(--space-1);
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.radio-option label {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.radio-option input {
+  accent-color: var(--color-accent);
+}
+
+.form-status {
+  margin: 0 0 var(--space-3);
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+#message-form button[type="submit"] {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#message-form button[type="submit"]:hover,
+#message-form button[type="submit"]:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
 }
 
 /* Tablet: nav row and two-column grids */
@@ -261,7 +365,7 @@ main > .split {
 
   .split {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
+    gap: var(--space-6);
     align-items: start;
   }
 

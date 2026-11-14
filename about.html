@@ -45,6 +45,48 @@
         </ul>
       </section>
     </div>
+
+    <section class="card" id="contact-form">
+      <h2>Send Me a Message</h2>
+      <form id="message-form" novalidate>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error">
+          <p class="error-message" id="name-error" role="alert" hidden></p>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error">
+          <p class="error-message" id="email-error" role="alert" hidden></p>
+        </div>
+
+        <fieldset class="form-field">
+          <legend>Inquiry type</legend>
+          <div class="radio-option">
+            <input type="radio" id="inquiry-general" name="inquiry" value="general" checked>
+            <label for="inquiry-general">General question</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="inquiry-project" name="inquiry" value="project">
+            <label for="inquiry-project">Project request</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="inquiry-job" name="inquiry" value="job">
+            <label for="inquiry-job">Job opportunity</label>
+          </div>
+        </fieldset>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" aria-describedby="message-error"></textarea>
+          <p class="error-message" id="message-error" role="alert" hidden></p>
+        </div>
+
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        <button type="submit">Send message</button>
+      </form>
+    </section>
   </main>
 
   <footer id="site-footer">
@@ -52,5 +94,68 @@
       <p>© 2026 Jamaar E. Peters</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('message-form');
+      var status = document.getElementById('form-status');
+
+      function showError(fieldId, message) {
+        var field = document.getElementById(fieldId);
+        var error = document.getElementById(fieldId + '-error');
+        field.setAttribute('aria-invalid', 'true');
+        error.textContent = message;
+        error.hidden = false;
+      }
+
+      function clearError(fieldId) {
+        var field = document.getElementById(fieldId);
+        var error = document.getElementById(fieldId + '-error');
+        field.removeAttribute('aria-invalid');
+        error.textContent = '';
+        error.hidden = true;
+      }
+
+      ['name', 'email', 'message'].forEach(function (id) {
+        document.getElementById(id).addEventListener('input', function () {
+          clearError(id);
+        });
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        status.hidden = true;
+        status.textContent = '';
+        var valid = true;
+
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var message = document.getElementById('message').value.trim();
+
+        if (name === '') {
+          showError('name', 'Please enter your name.');
+          valid = false;
+        }
+        if (email === '' || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+          showError('email', 'Please enter a valid email address.');
+          valid = false;
+        }
+        if (message === '') {
+          showError('message', 'Please write a message.');
+          valid = false;
+        }
+
+        if (!valid) {
+          var firstError = document.querySelector('[aria-invalid="true"]');
+          if (firstError) firstError.focus();
+          return;
+        }
+
+        status.textContent = 'Thanks for your message! I will get back to you soon.';
+        status.hidden = false;
+        form.reset();
+      });
+    })();
+  </script>
 </body>
 </html>
